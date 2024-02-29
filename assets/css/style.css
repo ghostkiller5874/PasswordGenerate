@@ -1,0 +1,113 @@
+@import url('./reset.css');
+
+.container{
+    display: flex;
+    height: 100vh;
+    padding: 10px 2%;
+    overflow-x: hidden;
+}
+
+
+
+/* PARTE DO SELETOR */
+.seletor{
+    border: 1px solid red;
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.cript, .SizePass, .contentPass{
+    display: flex;
+    flex-direction: column;  
+    margin: 10px;
+}
+.cript h4, .SizePass h4, .contentPass h4{
+    margin-bottom: 10px;
+}
+.seletor span {
+    font-size: 18px;
+}
+
+.cript-check, .size-check, .content-check{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+.cript-check input, .size-check input, .content-check input{
+    width: 60px;
+    height: 30px;
+    appearance: none;
+    border-radius: 30px;
+    background-color: #4b4b4b;
+    cursor: pointer;
+    position: relative;
+}
+.cript-check input::before, .size-check input::before, .content-check input::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: #8c8c8c;
+    position: absolute;
+    border-radius: inherit;
+    top: 50%;
+    left: .3rem;
+    transform: translateY(-50%);
+    transition: all .3s ease;
+}
+.cript-check input:checked:before, .size-check input:checked::before, .content-check input:checked::before{
+    left: 2.1rem;
+    background-color: #fff;
+}
+
+
+
+/* PARTE DO GERADOR */
+.gerador{
+    border: 1px solid rebeccapurple;
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.gerador h4{
+    font-size: 2.1em;
+}
+.gerador input{
+    width: 27rem;
+    height: 2.5rem;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    margin: 8px 0;
+    text-align: center;
+    font-size: 15px;
+}
+.gerador input:focus{
+    outline: none;
+}
+.gerador button{
+    padding: 10px 50px;
+    font-size: 18px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+    }
+    .seletor{
+        width: 100vw;
+        flex-direction: row;
+        justify-content: center;
+        height: auto ;
+    }
+    .cript, .SizePass, .contentPass{
+        margin: 25px;
+    }
+}
