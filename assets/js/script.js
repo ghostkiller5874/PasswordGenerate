@@ -1,11 +1,13 @@
 //caso seleciona as criptografias, criar um input com o resultado
-//import MD5 from "crypto-js/md5";
-
 const state = {
-    content:{
+    content: {
         conteudo: document.querySelectorAll(".contentPass .content-check"),
         tamanho: document.querySelectorAll(".SizePass .size-check"),
         cripto: document.querySelectorAll(".cript .cript-check"),
+        password: document.querySelector(".gerador #senha")
+    },
+    value:{
+        buttonGenerate: document.querySelector("#gerarPass")
     },
 }
 const especiais = [
@@ -64,41 +66,48 @@ const letras = [
     "y",
     "z"
 ];
-const numeral = [
-    0,
-    1,
-    2,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9
-];
 
-function randomChar(){
-    let randomNumber = Math.floor(Math.random() * numeral.length)
-    let randomLetras = Math.floor(Math.random() * letras.length)
-    let randomChar = Math.floor(Math.random() * especiais.length)
+function randomNumeral() {
+    let numeroRandom = Math.floor(Math.random() * 10).toString()
+    return numeroRandom;
+}
 
-    return letras[randomLetras]+numeral[randomNumber]+especiais[randomChar];
+function randomLetra() {
+    let letraRandom = Math.floor(Math.random() * letras.length).toString()
+    return letras[letraRandom]
+}
 
-    
+function randomChar() {
+    let charRandom = Math.floor(Math.random() * especiais.length).toString()
+    return especiais[charRandom]
 }
 
 
+function gerar(numeros, letras, simbolos) {
+    let password = "";
+    let tamanho = 10;
 
-function gerar(){
-    let palavra = '';
-    for(let i=0;i < 8;i++){
-        palavra = randomChar();
-        
+    const conjunto = [numeros,letras,simbolos];
+
+
+    for (let i = 0; i < tamanho; i=i+ conjunto.length) {
+        conjunto.forEach(()=>{
+            const randomValue = conjunto[Math.floor(Math.random() * conjunto.length)]();
+            //coloca o parenteses no final por ser uma lista de funçoes
+             password+=randomValue
+        });
+       
     }
-    console.log(palavra)
+   return password 
 }
 
 
-function init(){
-    gerar();
+function init() {
+    state.value.buttonGenerate.addEventListener("click",()=>{
+        state.content.password.value = gerar(randomNumeral,randomLetra,randomChar);
+       
+       //console.log(randomChar)
+    })
+    
 }
 init();
