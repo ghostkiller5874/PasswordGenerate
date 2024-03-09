@@ -119,6 +119,32 @@ function tamanhoCheck() {
 }
 function conteudoCheck() {
     
+    
+/*
+    //coleta os itens que estao checked
+    let conteudo = [document.querySelectorAll(`.content-check input[type="checkbox"]:checked`)]
+    let final = []
+    conteudo.forEach((checado)=>{
+        if(checado.id === "numeros"){
+            final.push(randomNumeral)
+        }else if(checado.id === "maiuscula"){
+            final.push(randomLetraUpper)
+        }else if(checado.id === "minuscula"){
+            final.push(randomLetra)
+        }else if(checado.id === "outros"){
+            final.push(randomChar)
+        }
+    })
+
+    return cont
+
+     
+    // verifica se corresponde se oq esta checked corresponde a alguma funcao, caso sim, retorna a funcao
+    if(numeros) return randomNumeral()
+    if(outros) return randomChar()
+    if(maiusculo) return randomLetraUpper()
+    if(minusculo) return randomLetra();
+   */
     let numero = document.getElementById("numeros")
     let maiuscula = document.getElementById("maiuscula")
     let minuscula = document.getElementById("minuscula")
@@ -126,16 +152,16 @@ function conteudoCheck() {
     let conteudo = [];
     
     if(numero.checked){
-        if(numero.value === numero.id) conteudo.push(randomNumeral()) 
+        if(numero.value === numero.id) conteudo.push(randomNumeral) 
     }
     if(maiuscula.checked){
-        if(maiuscula.value === maiuscula.id) conteudo.push(randomLetraUpper())
+        if(maiuscula.value === maiuscula.id) conteudo.push(randomLetraUpper)
     }
     if(minuscula.checked){
-        if(minuscula.value === minuscula.id) conteudo.push(randomLetra())
+        if(minuscula.value === minuscula.id) conteudo.push(randomLetra)
     }
     if(outros.checked){
-        if(outros.value === outros.id) conteudo.push(randomChar())
+        if(outros.value === outros.id) conteudo.push(randomChar)
     }
 
     return conteudo
@@ -148,21 +174,13 @@ function conteudoCheck() {
  * Função que gera o senha
  * 
  */
-function gerar() {
+function gerar(conteudo, tamanho) {
     let password = "";
-    let tamanho = tamanhoCheck();
+    //let tamanho = parseInt(tamanhoCheck());
 
-    //const conjunto = conteudo;
-    const conjunto = [conteudoCheck()];
-
-
-    for (let i = 0; i < tamanho; i = i + conjunto.length) {
-        conjunto.forEach(() => {
-            const randomValue = conjunto[Math.floor(Math.random() * conjunto.length)];
-            //coloca o parenteses no final por ser uma lista de funçoes
-            password += randomValue
-        });
-
+    for (let i = 0; i < tamanho; i++) {
+        const randomFunction = conteudo[Math.floor(Math.random() * conteudo.length)];
+        password += randomFunction();
     }
     //return password.toString().split(",")
     return password
@@ -172,7 +190,9 @@ function gerar() {
 function init() {
     
     state.actions.buttonGenerate.addEventListener("click",()=>{
-        state.content.password.value = gerar(conteudoCheck);
+        let tamanho = parseInt(tamanhoCheck());
+        let conteudo = conteudoCheck()
+        state.content.password.value = gerar(conteudo,tamanho);
     })
     //conteudoCheck()
 }
