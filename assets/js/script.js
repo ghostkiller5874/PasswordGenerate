@@ -118,33 +118,9 @@ function tamanhoCheck() {
     }
 }
 function conteudoCheck() {
-    
-    
-/*
     //coleta os itens que estao checked
-    let conteudo = [document.querySelectorAll(`.content-check input[type="checkbox"]:checked`)]
-    let final = []
-    conteudo.forEach((checado)=>{
-        if(checado.id === "numeros"){
-            final.push(randomNumeral)
-        }else if(checado.id === "maiuscula"){
-            final.push(randomLetraUpper)
-        }else if(checado.id === "minuscula"){
-            final.push(randomLetra)
-        }else if(checado.id === "outros"){
-            final.push(randomChar)
-        }
-    })
-
-    return cont
-
-     
     // verifica se corresponde se oq esta checked corresponde a alguma funcao, caso sim, retorna a funcao
-    if(numeros) return randomNumeral()
-    if(outros) return randomChar()
-    if(maiusculo) return randomLetraUpper()
-    if(minusculo) return randomLetra();
-   */
+
     let numero = document.getElementById("numeros")
     let maiuscula = document.getElementById("maiuscula")
     let minuscula = document.getElementById("minuscula")
@@ -166,9 +142,6 @@ function conteudoCheck() {
 
     return conteudo
 }
-
-
-
 /**
  * 
  * Função que gera o senha
@@ -188,12 +161,10 @@ function gerar(conteudo, tamanho) {
 
 
 function init() {
-    
     state.actions.buttonGenerate.addEventListener("click",()=>{
         let tamanho = parseInt(tamanhoCheck());
         let conteudo = conteudoCheck()
         state.content.password.value = gerar(conteudo,tamanho);
     })
-    //conteudoCheck()
 }
 init();

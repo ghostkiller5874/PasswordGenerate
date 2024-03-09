@@ -5,46 +5,51 @@
     height: 100vh;
     padding: 10px 2%;
     overflow-x: hidden;
+    background-image: linear-gradient(190deg,#444 0%, #333 50%, #ccc 100%);
 }
 
 
 
 /* PARTE DO SELETOR */
 .seletor{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 40%;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    color: #ffffffdc;
 }
-.cript, .SizePass, .contentPass{
+.SizePass, .contentPass{
     display: flex;
     flex-direction: column;  
     margin: 10px;
 }
-.cript h4, .SizePass h4, .contentPass h4{
+.SizePass h4, .contentPass h4{
     margin-bottom: 10px;
+    font-size: 22px;
+    letter-spacing: 2px;
 }
 .seletor span {
     font-size: 18px;
+    letter-spacing: 1px;
 }
 
-.cript-check, .size-check, .content-check{
+.size-check, .content-check{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 5px 0;
 }
-.cript-check input, .size-check input, .content-check input{
+.size-check input, .content-check input{
     width: 60px;
     height: 30px;
     appearance: none;
     border-radius: 30px;
-    background-color: #4b4b4b;
+    background-color: #00000094;
     cursor: pointer;
     position: relative;
 }
-.cript-check input::before, .size-check input::before, .content-check input::before{
+.size-check input::before, .content-check input::before{
     content: "";
     width: 20px;
     height: 20px;
@@ -56,7 +61,7 @@
     transform: translateY(-50%);
     transition: all .3s ease;
 }
-.cript-check input:checked:before, .size-check input:checked::before, .content-check input:checked::before{
+.size-check input:checked::before, .content-check input:checked::before{
     left: 2.1rem;
     background-color: #fff;
 }
@@ -65,24 +70,25 @@
 
 /* PARTE DO GERADOR */
 .gerador{
-    border: 1px solid rebeccapurple;
+    /* border: 1px solid rebeccapurple; */
     width: 60%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color: #fff;
+    letter-spacing: 1px;
 }
 .gerador h4{
     font-size: 2.1em;
 }
 .gerador textarea{
     width: 27rem;
-    
     padding:5px;
     border-radius: 10px;
     border: 1px solid #000;
-    margin: 8px 0;
+    margin: 20px 0;
     text-align: center;
     font-size: 15px;
     resize: none;
@@ -96,7 +102,11 @@
 .gerador button{
     padding: 10px 50px;
     font-size: 18px;
-
+    background-color: #8c8c8c;
+    color: #000;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
