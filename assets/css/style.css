@@ -76,17 +76,21 @@
 .gerador h4{
     font-size: 2.1em;
 }
-.gerador input{
+.gerador textarea{
     width: 27rem;
-    height: 2.5rem;
-    padding: 5px;
+    
+    padding:5px;
     border-radius: 10px;
     border: 1px solid #000;
     margin: 8px 0;
     text-align: center;
     font-size: 15px;
+    resize: none;
 }
-.gerador input:focus{
+.gerador textarea::placeholder{
+    text-align: center;
+}
+.gerador textarea:focus{
     outline: none;
 }
 .gerador button{
@@ -108,6 +112,27 @@
         height: auto ;
     }
     .cript, .SizePass, .contentPass{
-        margin: 25px;
+        margin: 25px 80px;
+    }
+    .gerador{
+        width: 100vw;
+        justify-content: start;
+        padding-top: 100px;
+    }
+    .gerador textarea{
+        margin: 30px 0;
+    }
+}
+@media screen and (max-width: 450px) {
+    .seletor{
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        height: auto ;
+    }
+    .gerador textarea{
+        width: 90%;
+        
+        line-break: strict;
     }
 }

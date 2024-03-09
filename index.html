@@ -27,7 +27,7 @@
                     <span>Minúsculas</span><input type="checkbox" id="minuscula" value="minuscula" onchange="conteudoCheck()">
                 </div>
                 <div class="content-check">
-                    <span style="margin-right: 10px;">Outros ex:(#,$)</span><input type="checkbox" id="outros" value="outros" onchange="conteudoCheck()">
+                    <span style="margin-right: 10px;">Outros(#,$)</span><input type="checkbox" id="outros" value="outros" onchange="conteudoCheck()">
                 </div>
             </div>
 
@@ -49,29 +49,11 @@
                     <span>64</span><input type="radio" id="64" value="64" name="tamanho" onchange="tamanhoCheck()">
                 </div>
             </div>
-            
-            <!-- <div class="cript">
-                <h4>Criptografia</h4>
-                <div class="cript-check">
-                    <span>Sha1</span><input type="checkbox" id="sha1"> 
-                </div>
-                <div class="cript-check">
-                    <span>MD5</span><input type="checkbox" id="md5"> 
-                </div>
-                <div class="cript-check">
-                    <span>Crypt</span><input type="checkbox" id="crypt">
-                </div>
-                <div class="cript-check">
-                    <span style="margin-right: 10px;">AES256</span><input type="checkbox" id="aes256"> 
-                </div>
-                <div class="cript-check">
-                    <span>Sha-2</span><input type="checkbox" id="sha-2"> 
-                </div>
-            </div>  -->
         </div>
         <div class="gerador">
             <h4>Gerador de Senhas</h4>
-            <input id="senha" type="text" placeholder="Password ...">
+            <textarea id="senha" type="text" placeholder="Password ..." wrap="hard"></textarea>
+            
             <button id="gerarPass">Gerar</button>
         </div>
     </div>
